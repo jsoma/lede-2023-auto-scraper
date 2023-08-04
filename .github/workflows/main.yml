@@ -1,5 +1,13 @@
 # You can name this whatever you want
 name: daily
+
+# You will get an error on the automatic updates committing
+# if you do not have this line
+# You didn't need it before, which is why a lot of yml job files
+# you see will not have it (but you need it now!!!)
+permissions:
+  contents: write
+  
 # The 'on' section is about when this is run
 # workflow_dispatch makes there be a button on GitHub to let you run it manually
 # schedule and cron make it run at certain frequencies
