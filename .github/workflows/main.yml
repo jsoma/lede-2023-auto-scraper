@@ -14,7 +14,7 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '*/15 * * * 1-5'
 jobs:
   daily:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
     - name: Install all necessary packages
       run: pip install jupyter lxml pandas requests beautifulsoup4 html5lib
     - name: Scraping today's data
-      run: jupyter nbconvert --to notebook --execute "Scraper.ipynb" --stdout
+      run: jupyter nbconvert --to notebook --execute "El Pais.ipynb" --stdout
     - name: Commit and push any changes
       run: |-
         git config user.name "Automated"
